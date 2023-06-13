@@ -1,10 +1,8 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import Navbar from "../components/Navbar";
-import MobileModel from "../components/MobileModel";
 
 const query = graphql`
-  query MyQuery {
+  query MyQuery1 {
     allStrapiMobileBrand {
       edges {
         node {
@@ -19,8 +17,9 @@ const query = graphql`
 const indexPage = () => {
   return (
     <>
-      <Navbar />
-      <MobileModel />
+      <h1 className="d-flex justify-content-center" style={{ padding: "5%" }}>
+        Available Now !!!
+      </h1>
       <StaticQuery
         query={query}
         render={(data) => (
@@ -28,7 +27,7 @@ const indexPage = () => {
             <thead className="thead-dark">
               <tr>
                 <th>Name</th>
-                <th>Description</th>
+                <th>Model</th>
               </tr>
             </thead>
             <tbody>

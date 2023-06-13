@@ -1,13 +1,14 @@
+import { Link } from "gatsby";
 import React from "react";
 
 const Navbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg " style={{ backgroundColor: "#d1c4e9" }}>
+      <nav className="navbar navbar-expand-lg fixed-navbar" style={{ backgroundColor: "#d1c4e9" }}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            Navbar
-          </a>
+          <Link className="navbar-brand" to="/">
+            Mobile Book
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -22,48 +23,19 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Home
-                </a>
+                <Link className="nav-link" to="/model">
+                  Model image
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">
-                  Link
-                </a>
-              </li>
-              <li className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Action
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Another action
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="/">
-                      Something else here
-                    </a>
-                  </li>
-                </ul>
+                <Link className="nav-link" to="/about-us">
+                  About Us
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled">Disabled</a>
+                <Link className="nav-link" to="/contact-us">
+                  Contact Us
+                </Link>
               </li>
             </ul>
             <form className="d-flex" role="search">
