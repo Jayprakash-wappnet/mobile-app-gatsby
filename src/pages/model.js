@@ -3,7 +3,10 @@ import { Link, graphql } from "gatsby";
 import React from "react";
 
 const modelPage = ({ data }) => {
-  const images = data.allImageSharp.edges.map((edge) => getImage(edge.node));
+  const images = data.allStrapiMobileMenu.nodes.map(
+    (node) => getImage(node?.model_photo?.localFile?.childImageSharp?.gatsbyImageData) ?? null
+  );
+
   console.log(images);
   return (
     <center>
@@ -31,9 +34,7 @@ const modelPage = ({ data }) => {
       <section>
         <h2>Image from API</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gridGap: "10px" }}>
-          {images.map((image, index) => (
-            <GatsbyImage key={index} image={image} alt={`Image ${index}`} />
-          ))}
+          {images.map((image, index) => (image ? <GatsbyImage key={index} image={image} alt="not found" /> : null))}
         </div>
       </section>
       <Link to="/">
@@ -45,11 +46,15 @@ const modelPage = ({ data }) => {
 export default modelPage;
 
 export const pageQuery = graphql`
-  query MyQuery {
-    allImageSharp {
-      edges {
-        node {
-          gatsbyImageData(width: 200)
+  {
+    allStrapiMobileMenu {
+      nodes {
+        model_photo {
+          localFile {
+            childImageSharp {
+              gatsbyImageData(width: 200)
+            }
+          }
         }
       }
     }

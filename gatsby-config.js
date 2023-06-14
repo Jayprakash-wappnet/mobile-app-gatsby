@@ -19,6 +19,15 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-image"
+    "gatsby-plugin-image",
+    {
+      resolve: "gatsby-source-wordpress",
+      options: {
+        baseUrl: "wappnet.com",
+        protocol: "https",
+        hostingWPCOM: false,
+        useACF: true // Set to true if you're using Advanced Custom Fields plugin
+      }
+    }
   ]
 };
