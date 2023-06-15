@@ -21,12 +21,9 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: "wappnet.com",
-        protocol: "https",
-        hostingWPCOM: false,
-        useACF: true // Set to true if you're using Advanced Custom Fields plugin
+        url: "http://localhost/graphql"
       }
     }
   ]
